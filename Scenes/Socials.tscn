@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Font/Retro Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Icons/spotify.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Socials.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Button/ButtonNormal.tres" type="StyleBox" id=4]
+[ext_resource path="res://Assets/Icons/youtube.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=2]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.384314, 0.384314, 0.384314, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[sub_resource type="ImageTexture" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.0235294, 0.737255, 0.929412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.0
+margin_right = 960.0
+margin_bottom = 192.0
+custom_fonts/font = ExtResource( 1 )
+text = "Social Media"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Spotify" type="Button" parent="Control"]
+margin_left = 40.0
+margin_top = 448.0
+margin_right = 152.0
+margin_bottom = 560.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = SubResource( 2 )
+icon = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="spotify" type="Sprite" parent="Control/Spotify"]
+position = Vector2( 56, 56 )
+scale = Vector2( 0.21875, 0.21875 )
+texture = ExtResource( 2 )
+
+[node name="YouTube" type="Button" parent="Control"]
+margin_left = 872.0
+margin_top = 448.0
+margin_right = 984.0
+margin_bottom = 560.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = SubResource( 2 )
+icon = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="youtube" type="Sprite" parent="Control/YouTube"]
+position = Vector2( 56, 56 )
+scale = Vector2( 0.21875, 0.21875 )
+texture = ExtResource( 5 )
+[connection signal="pressed" from="Control/Spotify" to="." method="_on_Spotify_pressed"]
+[connection signal="pressed" from="Control/YouTube" to="." method="_on_YouTube_pressed"]
