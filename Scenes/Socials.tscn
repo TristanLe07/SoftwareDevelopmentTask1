@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Font/Retro Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Icons/spotify.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Socials.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Button/ButtonNormal.tres" type="StyleBox" id=4]
 [ext_resource path="res://Assets/Icons/youtube.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Icons/hyperfollow.png" type="Texture" id=6]
+[ext_resource path="res://Font/ARCADECLASSIC.TTF" type="DynamicFontData" id=7]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -18,7 +20,11 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 20
 
-[sub_resource type="ImageTexture" id=1]
+[sub_resource type="ImageTexture" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 7 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -48,46 +54,83 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Buttons" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
 
-[node name="Spotify" type="Button" parent="Control"]
+[node name="Spotify" type="Button" parent="Buttons"]
 margin_left = 40.0
-margin_top = 448.0
-margin_right = 152.0
+margin_top = 432.0
+margin_right = 168.0
 margin_bottom = 560.0
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 4 )
-custom_styles/normal = SubResource( 2 )
-icon = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+icon = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="spotify" type="Sprite" parent="Control/Spotify"]
-position = Vector2( 56, 56 )
-scale = Vector2( 0.21875, 0.21875 )
+[node name="spotify" type="Sprite" parent="Buttons/Spotify"]
+position = Vector2( 64, 64 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 
-[node name="YouTube" type="Button" parent="Control"]
-margin_left = 872.0
-margin_top = 448.0
+[node name="YouTube" type="Button" parent="Buttons"]
+margin_left = 856.0
+margin_top = 432.0
 margin_right = 984.0
 margin_bottom = 560.0
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 4 )
-custom_styles/normal = SubResource( 2 )
-icon = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+icon = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="youtube" type="Sprite" parent="Control/YouTube"]
-position = Vector2( 56, 56 )
-scale = Vector2( 0.21875, 0.21875 )
+[node name="youtube" type="Sprite" parent="Buttons/YouTube"]
+position = Vector2( 64, 64 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
-[connection signal="pressed" from="Control/Spotify" to="." method="_on_Spotify_pressed"]
-[connection signal="pressed" from="Control/YouTube" to="." method="_on_YouTube_pressed"]
+
+[node name="HyperFollow" type="Button" parent="Buttons"]
+margin_left = 448.0
+margin_top = 256.0
+margin_right = 576.0
+margin_bottom = 384.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+icon = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="hyperfollow" type="Sprite" parent="Buttons/HyperFollow"]
+position = Vector2( 64, 64 )
+scale = Vector2( 0.16, 0.144144 )
+texture = ExtResource( 6 )
+
+[node name="BackButton" type="Button" parent="Buttons"]
+margin_left = 920.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 104.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
+text = "x"
+icon = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Buttons/Spotify" to="." method="_on_Spotify_pressed"]
+[connection signal="pressed" from="Buttons/YouTube" to="." method="_on_YouTube_pressed"]
+[connection signal="pressed" from="Buttons/HyperFollow" to="." method="_on_HyperFollow_pressed"]
+[connection signal="pressed" from="Buttons/BackButton" to="." method="_on_BackButton_pressed"]

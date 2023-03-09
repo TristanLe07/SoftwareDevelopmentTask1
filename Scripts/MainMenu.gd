@@ -6,4 +6,4 @@ func _on_Button_pressed():
 
 
 func _on_SocialButton_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://Scenes/Socials.tscn")

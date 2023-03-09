@@ -22,3 +22,11 @@ func _on_Spotify_pressed():
 
 func _on_YouTube_pressed():
 	OS.shell_open("https://youtube.com/@imrainclouds")
+
+
+func _on_HyperFollow_pressed():
+	OS.shell_open("https://hyperfollow.com/RainClouds")
+
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
