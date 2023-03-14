@@ -22,19 +22,19 @@ animations = [ {
 "name": "Other Character",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "idle2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "climb",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "crouch",
+"name": "idle2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
@@ -42,33 +42,34 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "walk",
+"name": "crouch",
 "speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 32.0
-height = 16.0
+radius = 16.0002
+height = 2.81969
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 7 )
 
 [node name="player" type="AnimatedSprite" parent="."]
-position = Vector2( 52, 52 )
-scale = Vector2( 1.08333, 1.08333 )
+position = Vector2( -5.68434e-14, -8 )
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-animation = "idle2"
+animation = "idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 56, 64 )
+position = Vector2( 0, -1.30935 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="SoundJump" type="AudioStreamPlayer" parent="."]
+pause_mode = 1
 stream = ExtResource( 9 )
 pitch_scale = 2.0
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

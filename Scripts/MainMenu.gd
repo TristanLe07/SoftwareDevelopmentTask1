@@ -2,8 +2,7 @@ extends Control
 
 
 func _on_Button_pressed():
-	pass # Replace with function body.
-
+	get_tree().change_scene("res://Scenes/Levels/Level 1.tscn")
 
 func _on_SocialButton_pressed():
 	get_tree().change_scene("res://Scenes/Socials.tscn")

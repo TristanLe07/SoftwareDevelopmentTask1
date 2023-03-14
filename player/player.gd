@@ -12,13 +12,13 @@ func _physics_process(delta):
 	if Input.is_action_pressed("right"):
 		velocity.x = SPEED
 		$player.play("Other Character")
-		$player.flip_h = true
+		$player.flip_h = false
 	elif Input.is_action_pressed("left"):
 		velocity.x = -SPEED
 		$player.play("Other Character")
-		$player.flip_h = false
+		$player.flip_h = true
 	else:
-		$player.play("idle2")
+		$player.play("idle")
 	if not is_on_floor():
 		$player.play("idle2")
 		
@@ -35,12 +35,12 @@ func _physics_process(delta):
 		get_tree().reload_current_scene()
 		
 	if Input.is_action_pressed("mainmenu"):
-		get_tree().change_scene("res://MainMenu.tscn")
+		get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 
 
 func _on_fallzone_body_entered(body):
-	get_tree().change_scene("res://death.tscn")
+	get_tree().change_scene("res://Scenes/death.tscn")
 
 func add_coin():
 	coins = coins + 1
@@ -68,3 +68,7 @@ func _on_Timer_timeout():
 
 func _on_Area2D_body_entered(body):
 	get_tree().change_scene("res://Level2.tscn")
+
+
+func _on_fallzone_area_entered(area):
+	pass # Replace with function body.
