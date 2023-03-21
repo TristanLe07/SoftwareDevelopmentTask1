@@ -14,11 +14,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "idle2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "jump",
@@ -27,6 +22,11 @@ animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "idle2",
 "speed": 5.0
 } ]
 
@@ -54,5 +54,4 @@ shape = SubResource( 2 )
 pause_mode = 1
 stream = ExtResource( 9 )
 pitch_scale = 2.0
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

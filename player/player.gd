@@ -11,11 +11,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("right"):
 		velocity.x = SPEED
-		$player.play("Other Character")
+		$player.play("walk")
 		$player.flip_h = false
 	elif Input.is_action_pressed("left"):
 		velocity.x = -SPEED
-		$player.play("Other Character")
+		$player.play("walk")
 		$player.flip_h = true
 	else:
 		$player.play("idle")
@@ -67,7 +67,7 @@ func _on_Timer_timeout():
 
 
 func _on_Area2D_body_entered(body):
-	get_tree().change_scene("res://Level2.tscn")
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 
 func _on_fallzone_area_entered(area):

@@ -46,6 +46,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Title2" type="Label" parent="Text"]
+margin_right = 200.0
+margin_bottom = 192.0
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Question" type="Label" parent="Text"]
 margin_right = 1024.0
 margin_bottom = 376.0
