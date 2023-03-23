@@ -31,16 +31,16 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity,Vector2.UP)
 		
 	velocity.x = lerp(velocity.x,0,0.2)
+	
+	# THIS IS FOR TESTING, REMOVE AFTER
+	
 	if Input.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
-		
-	if Input.is_action_pressed("mainmenu"):
-		get_tree().change_scene("res://Scenes/MainMenu.tscn")
-
-
 
 func _on_fallzone_body_entered(body):
 	get_tree().change_scene("res://Scenes/death.tscn")
+
+
 
 func add_coin():
 	coins = coins + 1
@@ -72,3 +72,7 @@ func _on_Area2D_body_entered(body):
 
 func _on_fallzone_area_entered(area):
 	pass # Replace with function body.
+
+
+func _on_WinZone_body_entered(body):
+	get_tree().change_scene("res://Scenes/WinScreen.tscn")

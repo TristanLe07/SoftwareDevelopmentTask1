@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/PauseController.gd" type="Script" id=1]
+[ext_resource path="res://Font/ARCADECLASSIC.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Button/ButtonNormal.tres" type="StyleBox" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 2 )
+
+[node name="CameraOverlay" type="CanvasLayer"]
+layer = 2
+
+[node name="MobileControls" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2( 8, 112 )
+scale = Vector2( 0.1875, 0.1875 )
+passby_press = true
+action = "ui_left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2( 40, 112 )
+scale = Vector2( 0.1875, 0.1875 )
+passby_press = true
+action = "ui_right"
+visibility_mode = 1
+
+[node name="Up" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2( 24, 96 )
+scale = Vector2( 0.1875, 0.1875 )
+passby_press = true
+action = "ui_up"
+visibility_mode = 1
+
+[node name="Down" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2( 24, 128 )
+scale = Vector2( 0.1875, 0.1875 )
+passby_press = true
+action = "ui_down"
+visibility_mode = 1
+
+[node name="Pause" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2( 208, 8 )
+scale = Vector2( 0.1875, 0.1875 )
+passby_press = true
+action = "MenuPause"
+visibility_mode = 1
+
+[node name="Interaction" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2( 192, 112 )
+scale = Vector2( 0.1875, 0.1875 )
+passby_press = true
+action = "ui_accept"
+visibility_mode = 1
+
+[node name="PauseController3" type="Control" parent="."]
+pause_mode = 2
+visible = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PauseController3"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.427451, 0.427451, 0.427451, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseController3"]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseController3/CenterContainer"]
+margin_left = 256.0
+margin_top = 103.0
+margin_right = 768.0
+margin_bottom = 497.0
+
+[node name="Label" type="Label" parent="PauseController3/CenterContainer/VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 1 )
+text = "Paused"
+align = 1
+valign = 1
+
+[node name="ResumeBtn" type="Button" parent="PauseController3/CenterContainer/VBoxContainer"]
+margin_top = 134.0
+margin_right = 512.0
+margin_bottom = 262.0
+rect_min_size = Vector2( 512, 128 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Resume"
+
+[node name="QuitBtn" type="Button" parent="PauseController3/CenterContainer/VBoxContainer"]
+margin_top = 266.0
+margin_right = 512.0
+margin_bottom = 394.0
+rect_min_size = Vector2( 512, 128 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 3 )
+text = "Quit"
+[connection signal="pressed" from="PauseController3/CenterContainer/VBoxContainer/ResumeBtn" to="PauseController3" method="_on_Button_pressed"]
+[connection signal="pressed" from="PauseController3/CenterContainer/VBoxContainer/QuitBtn" to="PauseController3" method="_on_Button2_pressed"]

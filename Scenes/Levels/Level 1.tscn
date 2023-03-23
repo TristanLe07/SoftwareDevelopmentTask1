@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Tiles/map2.tres" type="TileSet" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Assets/Tiles/tile_0161.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Tiles/tile_0160.png" type="Texture" id=5]
 [ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://FallZone/WinZone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/CameraOverlay.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -51,6 +53,9 @@ editor_draw_limits = true
 position = Vector2( 136, 320 )
 collision_layer = 16
 
+[node name="WinZone" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1680, 24 )
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="KinematicBody2D2" parent="Enemies" instance=ExtResource( 6 )]
@@ -61,4 +66,7 @@ position = Vector2( 1440, 152 )
 
 [node name="KinematicBody2D3" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 856, 62 )
+
+[node name="CameraOverlay" parent="." instance=ExtResource( 8 )]
 [connection signal="body_entered" from="fallzone" to="KinematicBody2D" method="_on_fallzone_body_entered"]
+[connection signal="body_entered" from="WinZone" to="KinematicBody2D" method="_on_WinZone_body_entered"]
