@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 enum States {AIR = 1, FLOOR, LADDER, WALL}
 var velocity = Vector2(0,0)
-var coins = 0
 const SPEED = 150
 const GRAVITY = 35
 const JUMPFORCE = -550
@@ -26,24 +25,22 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMPFORCE
+		$player.play("jump")
 		$SoundJump.play()
 		
 	velocity = move_and_slide(velocity,Vector2.UP)
 		
 	velocity.x = lerp(velocity.x,0,0.2)
 	
-	# THIS IS FOR TESTING, REMOVE AFTER
+	# VVVVV THIS IS FOR TESTING, REMOVE AFTER VVVVV
 	
 	if Input.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
 
+	#				^^^^^^^^^^
+
 func _on_fallzone_body_entered(body):
 	get_tree().change_scene("res://Scenes/death.tscn")
-
-
-
-func add_coin():
-	coins = coins + 1
 
 func bounce():
 	velocity.y = JUMPFORCE * 0.7
@@ -63,16 +60,11 @@ func ouch(var enemyposx):
 	$Timer.start()
 
 func _on_Timer_timeout():
-	get_tree().reload_current_scene()
+	get_tree().change_scene("res://Scenes/death.tscn")
 
 
 func _on_Area2D_body_entered(body):
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
-
-func _on_fallzone_area_entered(area):
-	pass # Replace with function body.
-
-
 func _on_WinZone_body_entered(body):
-	get_tree().change_scene("res://Scenes/WinScreen.tscn")
+	get_tree().change_scene("res://Scenes/WinSceen.tscn")

@@ -34,33 +34,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 428.0
-margin_top = 173.0
-margin_right = 436.0
-margin_bottom = 201.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-margin_left = 419.0
-margin_top = 183.0
-margin_right = 445.0
-margin_bottom = 192.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect4" type="ColorRect" parent="."]
-margin_left = 521.56
-margin_top = 183.0
-margin_right = 547.56
-margin_bottom = 192.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Text" type="Control" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -77,23 +50,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title2" type="Label" parent="Text"]
-margin_right = 192.0
-margin_bottom = 192.0
-custom_fonts/font = ExtResource( 3 )
-text = "2"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Question" type="Label" parent="Text"]
 margin_top = 40.0
 margin_right = 1024.0
 margin_bottom = 336.0
 custom_fonts/font = SubResource( 1 )
-text = "354    36    51 x 2"
+text = "10 x 10"
 align = 1
 valign = 1
 __meta__ = {
@@ -118,7 +80,10 @@ custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 custom_fonts/font = SubResource( 2 )
-text = "288"
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="INCORRET_Button" type="Button" parent="BUTTONS"]
 anchor_right = 25.6
@@ -131,7 +96,7 @@ custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 custom_fonts/font = SubResource( 2 )
-text = "289"
+text = "10"
 
 [node name="INCORRET_Button2" type="Button" parent="BUTTONS"]
 anchor_right = 25.6
@@ -144,7 +109,10 @@ custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 custom_fonts/font = SubResource( 2 )
-text = "351"
+text = "1000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="INCORRET_Button3" type="Button" parent="BUTTONS"]
 anchor_right = 25.6
@@ -157,7 +125,7 @@ custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 custom_fonts/font = SubResource( 2 )
-text = "612"
+text = "1"
 [connection signal="pressed" from="BUTTONS/CORRECT_Button" to="." method="_on_CORRECT_Button_pressed"]
 [connection signal="pressed" from="BUTTONS/INCORRET_Button" to="." method="_on_INCORRET_Button_pressed"]
 [connection signal="pressed" from="BUTTONS/INCORRET_Button2" to="." method="_on_INCORRET_Button2_pressed"]
